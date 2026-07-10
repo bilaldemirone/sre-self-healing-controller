@@ -1,0 +1,23 @@
+# macOS
+.DS_Store
+
+# Go
+bin/
+*.test
+coverage.out
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Environment
+.env
+
+# Build
+dist/
+
+# Docker
+*.tar

@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: sre-controller-config
+  namespace: default
+data:
+  cpuThreshold: "0.05"
+  restartThreshold: "3"

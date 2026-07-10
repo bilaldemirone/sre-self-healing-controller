@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sre-controller
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sre-controller
+  template:
+    metadata:
+      labels:
+        app: sre-controller
+    spec:
+      serviceAccountName: sre-controller
+      containers:
+        - name: sre-controller
+          image: sre-controller:local
+          imagePullPolicy: Never
+          args:
+            - "--metrics-bind-address=0"

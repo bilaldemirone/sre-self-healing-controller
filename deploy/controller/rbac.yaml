@@ -10,8 +10,16 @@ metadata:
   name: sre-controller
 rules:
   - apiGroups: [""]
-    resources: ["pods", "events", "configmaps"]
-    verbs: ["get", "list", "watch", "create", "patch", "update", "delete"]
+    resources: ["pods"]
+    verbs: ["get", "list", "watch", "delete"]
+
+  - apiGroups: [""]
+    resources: ["events"]
+    verbs: ["get", "list", "watch", "create", "patch", "update"]
+
+  - apiGroups: [""]
+    resources: ["configmaps"]
+    verbs: ["get", "list", "watch"]
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding

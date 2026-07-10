@@ -16,7 +16,7 @@ spec:
       serviceAccountName: sre-controller
       containers:
         - name: sre-controller
-          image: sre-controller:local
+          image: sre-controller:v1
           imagePullPolicy: Never
           args:
             - "--metrics-bind-address=0"

@@ -247,14 +247,14 @@ kubectl delete pod -l app=dummy-app
 
 ## Future Improvements
 
-- Slack Integration
-- Microsoft Teams Integration
-- Deployment Restart
-- StatefulSet Support
-- Machine Learning Based Anomaly Detection
-- OpenTelemetry Integration
-- Grafana Dashboards
+- Node Health Monitoring
+- Node Pressure Detection
+- Node Auto Cordon / Drain
+- Deployment Rollout Restart
+- StatefulSet Recovery
 - Alertmanager Integration
+- Slack Notifications
+- OpenTelemetry
 
 ---
 

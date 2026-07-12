@@ -6,3 +6,6 @@ metadata:
 data:
   cpuThreshold: "0.05"
   restartThreshold: "3"
+
+  nodeCPUThreshold: "0.80"
+  nodeMemoryThreshold: "0.85"

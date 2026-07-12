@@ -3,9 +3,9 @@ package main
 import (
 	"encoding/json"
 	"log"
+	"math"
 	"net/http"
 	"time"
-	"math"
 )
 
 type HealthResponse struct {

@@ -9,14 +9,18 @@ import (
 )
 
 type ThresholdConfig struct {
-	CPUThreshold     float64
-	RestartThreshold int32
+	CPUThreshold        float64
+	RestartThreshold    int32
+	NodeCPUThreshold    float64
+	NodeMemoryThreshold float64
 }
 
 func LoadThresholdConfig(ctx context.Context, c client.Client) ThresholdConfig {
 	cfg := ThresholdConfig{
-		CPUThreshold:     0.05,
-		RestartThreshold: 3,
+		CPUThreshold:        0.05,
+		RestartThreshold:    3,
+		NodeCPUThreshold:    0.80,
+		NodeMemoryThreshold: 0.85,
 	}
 
 	var cm corev1.ConfigMap
@@ -40,6 +44,16 @@ func LoadThresholdConfig(ctx context.Context, c client.Client) ThresholdConfig {
 			cfg.RestartThreshold = int32(parsed)
 		}
 	}
+	if v, ok := cm.Data["nodeCPUThreshold"]; ok {
+		if parsed, err := strconv.ParseFloat(v, 64); err == nil {
+			cfg.NodeCPUThreshold = parsed
+		}
+	}
 
+	if v, ok := cm.Data["nodeMemoryThreshold"]; ok {
+		if parsed, err := strconv.ParseFloat(v, 64); err == nil {
+			cfg.NodeMemoryThreshold = parsed
+		}
+	}
 	return cfg
 }
